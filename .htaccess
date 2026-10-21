@@ -1,9 +1,14 @@
-# GREENNATURA · Hostinger / Apache
+# GREENNATURA · greennatura.es · Apache (DonDominio)
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # www.greennatura.es → greennatura.es (una sola dirección para Google)
+  RewriteCond %{HTTP_HOST} ^www\.greennatura\.es$ [NC]
+  RewriteRule ^ https://greennatura.es%{REQUEST_URI} [L,R=301]
+  # http → https (también si el servidor va detrás de un proxy)
   RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
