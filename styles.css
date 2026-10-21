@@ -614,3 +614,7 @@ body.menu-open .menu__links a:nth-child(6) { transition-delay: .35s; }
   .ticker__track { animation-duration: 80s; }
   .wa-float::before { animation: none; }
 }
+
+/* Firma del diseñador en el pie */
+.credit a { color: var(--leaf-2); text-decoration: none; border-bottom: 1px solid currentColor; transition: color .4s var(--ease); }
+.credit a:hover { color: var(--cream); }
